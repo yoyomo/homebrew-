@@ -5,7 +5,8 @@ class CRun < Formula
   sha256 "b830718c78f1bf9f9277011fce6cff139bd90e00f32fc9f0005bd010fc1719a7"
 
   def install
-    bin.install "c_run"
+    system "./configure", "--prefix=#{prefix}"
+    system "make", "install"
   end
 
   test do

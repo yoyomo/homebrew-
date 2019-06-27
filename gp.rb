@@ -2,7 +2,7 @@ class Gp < Formula
   desc "git add .; git commit -m \"message\"; git push origin head => one liner"
   homepage "https://github.com/yoyomo/gp"
   url "https://raw.githubusercontent.com/yoyomo/gp/master/gp-1.0.tar.gz"
-  sha256 "1fe56942c49bacff73119ec8f6574301683f23cbb6fbbf9ae37fea5aa272a078"
+  sha256 "833f85a6bf6ee33d6649a591f429e9236eb1d1b4b4cebebdd8bdb9d81e944576"
 
   def install
     bin.install "gp"

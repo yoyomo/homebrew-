@@ -1,4 +1,4 @@
-class CRun < Formula
+class C < Formula
   desc "Compile and Run C code using only one command line"
   homepage "https://github.com/yoyomo/c"
   url "https://raw.githubusercontent.com/yoyomo/c/master/c-1.0.tgz"

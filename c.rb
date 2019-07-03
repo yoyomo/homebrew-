@@ -2,7 +2,7 @@ class C < Formula
   desc "Compile and Run C code using only one command line"
   homepage "https://github.com/yoyomo/c"
   url "https://raw.githubusercontent.com/yoyomo/c/master/versions/c-1.0.tar.gz"
-  sha256 "79a58adce99dbdc7208280cb1d7815f536556ce1d113315c172eb6cfbe5bad00"
+  sha256 "0fbafac7bb3ea4cd631564d095d1322529949b9af9e57953b14473ce3c997471"
 
   def install
     bin.install "c"

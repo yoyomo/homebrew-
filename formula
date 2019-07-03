@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [ "$#" -lt 2 ]; then
+  echo "Usage: formula PROJECT_NAME VERSION"
+  exit 1;
+fi
+
+project_name=$1
+version=$2
+
+#generate ruby formula
+class_name=`(echo ${project_name:0:1} | tr '[:lower:]' '[:upper:]')`${project_name:1}
+project_info=`curl -s https://api.github.com/repos/yoyomo/$project_name`  
+desc=`echo $project_info | jq -r '.description'`
+homepage=`echo $project_info | jq -r '.html_url'`
+url=https://raw.githubusercontent.com/yoyomo/$project_name/master/versions/v$version.tar.gz
+sha256=`curl -s $url | shasum --algorithm 256`
+
+echo "class $class_name < Formula
+  desc \"$desc\"
+  homepage \"$homepage\"
+  url \"$url\"
+  sha256 \"$sha256\"
+
+  def install
+    bin.install \"$project_name\"
+  end
+end
+" > $project_name.rb

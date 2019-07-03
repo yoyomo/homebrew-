@@ -12,6 +12,7 @@ version=$2
 class_name=`(echo ${project_name:0:1} | tr '[:lower:]' '[:upper:]')`${project_name:1}
 project_info=`curl -s https://api.github.com/repos/yoyomo/$project_name`  
 desc=`echo $project_info | jq -r '.description'`
+desc=${desc//"\""/"\\\""}
 homepage=`echo $project_info | jq -r '.html_url'`
 url=https://raw.githubusercontent.com/yoyomo/$project_name/master/versions/v$version.tar.gz
 sha256=`curl -s $url | openssl dgst -sha256`
